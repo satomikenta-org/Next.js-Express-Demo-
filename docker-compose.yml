@@ -1,0 +1,17 @@
+version: '3'
+services: 
+  app-1:
+    build: .
+    restart: always
+  app-2:
+    build: .
+    restart: always
+  nginx:
+    build: ./nginx/
+    restart: always
+    depends_on:
+      - app-1
+      - app-2
+    ports:
+      - 80:80
+    
